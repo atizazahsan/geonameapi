@@ -1,0 +1,130 @@
+<!doctype html>
+
+<html lang="en">
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="description" content="AJAX/PHP/CURL/JSON example">
+		<meta name="author" content="Paddy Evans">
+
+		<link rel="stylesheet" href="./libs/css/style.css">
+
+		<title>AJAX/PHP/CURL/JSON example</title>
+
+	</head>
+
+	<body>
+		<div id=”preloader”></div>
+		<table>
+			<tr>
+				<th>API Name</th>
+				<th>API Description</th>
+				<th></th>
+			</tr>
+
+			<!-- Api 1 -->
+			<tr>
+				<td>
+					Country Info 
+				</td>
+				<td>
+					<h3>Country Info</h3> 
+					<!-- <input type="number" id="latValue2" placeholder="Latitude">
+					<input type="number" id="lngValue2" placeholder="Longitude"> -->
+					<select id="selCountry">
+						<option value="GB">Great Britain</option>
+						<option value="FR">France</option>
+						<option value="DE">Germany</option>
+						<option value="US">USA</option>
+					</select>
+			
+					<select id="selLanguage">
+						<option value="en">English</option>
+						<option value="fr">Francais</option>
+						<option value="de">Deutsche</option>
+					</select>
+					
+					
+				</td>
+				<td>
+					<a id="btnCountryCode" class="btn">Submit</a>
+				</td>
+			</tr>
+
+			<!-- Api 2 -->
+
+			<tr>
+				<td>
+					Nearby Populated Place
+				</td>
+				<td>
+					<h3>Find nearby populated place / reverse geocoding</h3> <br>
+					<input type="number" id="latValue" placeholder="Latitude">
+					<input type="number" id="lngValue" placeholder="Longitude">	
+				</td>
+				<td>
+					<a id="btnPlace" class="btn">Submit</a>
+				</td>
+			</tr>
+
+			<!-- Api 3 -->
+			<tr>
+				<td>
+					Weather 
+				</td>
+				<td>
+					<h3>Weather</h3> <br>
+					<input type="number" id="northValue" placeholder='North'>
+					<input type="number" id="southValue" placeholder='South'>
+					<input type="number" id="eastValue" placeholder='East'>
+					<input type="number" id="westValue" placeholder='West'>
+				<td>
+					<a id="weather" class="btn">Submit</a>
+				</td>
+			</tr>
+
+			<!-- Api 4 -->
+			
+			<tr>
+				<td>
+					Nearby Populated Place
+				</td>
+				<td>
+					<h3>Find nearby populated place / reverse geocoding</h3> <br>
+					<input type="number" id="latValue2" placeholder="Latitude">
+					<input type="number" id="lngValue2" placeholder="Longitude">	
+				</td>
+				<td>
+					<a id="btnPlace2" class="btn">Submit</a>
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="3" >
+					
+					<div class="result">
+						<h4 class="heading">Result</h4>
+						<h6 class="apiResult" id="txt1"></h6>
+						<h6 class="apiResult" id="txt2"></h6>
+						<h6 class="apiResult" id="txt3"></h6>
+						<h6 class="apiResult" id="txt4"></h6>
+						<h6 class="apiResult" id="txt5"></h6>
+					</div>
+					
+				</td>
+			</tr>
+		</table>
+
+		<br><br>
+
+		
+
+		<script type="application/javascript" src="libs/js/jquery-2.2.3.min.js"></script>
+		<script type="application/javascript" src="libs/js/loader.js"></script>
+		<script type="application/javascript" src="libs/js/script.js"></script>
+		
+
+	</body>
+
+</html>
