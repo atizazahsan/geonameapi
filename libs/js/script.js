@@ -1,3 +1,6 @@
+var ErrorMessage1 = "No Data Found Please Try Again !!!!!! (And Please Refresh Window Before Another Request)" ;
+var ErrorMessage2 = "Please add correct Coordinates !!!!!! (And Please Refresh Window Before Another Request)" ;
+
 $('#btnCountryCode').click(function() {
 
 	$.ajax({
@@ -14,56 +17,28 @@ $('#btnCountryCode').click(function() {
 			console.log(JSON.stringify(result));
 
 			if (result.status.name == "ok") {
-
+				if(!result.data){   
+					$('#resultError').text(ErrorMessage1)
+				}
 				$('#txt1').html(result['data'][0]['continent']);
 				$('#txt2').html(result['data'][0]['capital']);
 				$('#txt3').html(result['data'][0]['languages']);
 				$('#txt4').html(result['data'][0]['population']);
 				$('#txt5').html(result['data'][0]['areaInSqKm']);
 
+				
+
 			}
 		
 		},
-		error: function(jqXHR, textStatus, errorThrown) {
-			// your error code
-		}
+		error: function(jqXHR, status, error) {
+					let errorMessage = jqXHR.status + ': ' + jqXHR.statusText ;
+					$('#resultError').text(ErrorMessage2)
+			}
 	}); 
 
 });
 	
-	
-	// $('#btnCountryCode').click(function() {
-
-	// 	$.ajax({
-	// 		url: "libs/php/CountryCode.php",
-	// 		type: 'POST',
-	// 		dataType: 'json',
-	// 		data: {
-	// 			latitudeCountryCode: $('#latValue2').val(),
-	// 			longitudeCountryCode: $('#lngValue2').val() 
-	// 		},
-	// 		message : alert("First Clicked") ,
-	// 		success: function(result) {
-
-	// 			console.log(JSON.stringify(result));
-
-	// 			if (result.status.name == "ok") {
-
-	// 				$('#txt1').html(result['data']['earthquakes']['0']);
-	// 				$('#txt2').html(result['data'][0]['capital']);
-	// 				$('#txt3').html(result['data'][0]['languages']);
-	// 				$('#txt4').html(result['data'][0]['population']);
-	// 				$('#txt5').html(result['data'][0]['areaInSqKm']);
-
-	// 			}
-			
-	// 		},
-	// 		error: function(jqXHR, textStatus, errorThrown) {
-	// 			// your error code
-	// 		}
-	// 	}); 
-	
-	// });
 
 	
 
@@ -83,7 +58,10 @@ $('#btnCountryCode').click(function() {
 				console.log(JSON.stringify(result));
 
 				if (result.status.name == "ok") {
-
+					if(!result.data && result.data.length == 0){   
+						
+						$('#resultError').text(ErrorMessage1)
+					}
 					$('#txt1').html(result['data'][0]['distance']);
 					$('#txt2').html(result['data'][0]['asciiName']);
 					$('#txt3').html(result['data'][0]['countryName']);
@@ -93,46 +71,13 @@ $('#btnCountryCode').click(function() {
 				}
 			
 			},
-			error: function(jqXHR, textStatus, errorThrown) {
-				// your error code
-			}
-		}); 
-	
-	});
-
-	$('#btnPlace2').click(function() {
-
-		$.ajax({
-			url: "libs/php/neighbourhood.php",
-			type: 'POST',
-			dataType: 'json',
-			data: {
-				latitude2: $('#latValue2').val(),
-				longitude2: $('#lngValue2').val()
-			},
-			message : alert("Loading......1") ,
-			success: function(result) {
-
-				console.log(JSON.stringify(result));
-
-				if (result.status.name == "ok") {
-
-					$('#txt1').html(result['data'][0]['distance']);
-					$('#txt2').html(result['data'][0]['asciiName']);
-					$('#txt3').html(result['data'][0]['countryName']);
-					$('#txt4').html(result['data'][0]['continentCode']);
-					$('#txt5').html(result['data'][0]['timezone']['timeZoneId']);
-
+			error: function(jqXHR, status, error) {
+						let errorMessage = jqXHR.status + ': ' + jqXHR.statusText ;
+						$('#resultError').text(ErrorMessage2)
 				}
-			
-			},
-			error: function(jqXHR, textStatus, errorThrown) {
-				// your error code
-			}
 		}); 
 	
 	});
-	
 
 	$('#weather').click(function() {
 
@@ -152,7 +97,9 @@ $('#btnCountryCode').click(function() {
 				console.log(JSON.stringify(result));
 
 				if (result.status.name == "ok") {
-
+					if(!result.data){    
+						$('#resultError').text(ErrorMessage1)
+						}	
 					$('#txt1').html(result['language']);
 					$('#txt2').html(result['data']);
 					$('#txt3').html(result['data'][0]['countryName']);
@@ -162,9 +109,47 @@ $('#btnCountryCode').click(function() {
 				}
 			
 			},
-			error: function(jqXHR, textStatus, errorThrown) {
-				// your error code
-			}
+			error: function(jqXHR, status, error) {
+						let errorMessage = jqXHR.status + ': ' + jqXHR.statusText ;
+						$('#resultError').text(ErrorMessage2)
+					}
 		}); 
 	
 	});
+
+	$('#btnPlace2').click(function() {
+
+		$.ajax({
+			url: "libs/php/neighbourhood.php",
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				geonameid: $('#geonameid').val()
+			},
+			message : alert("Loading......") ,
+			success: function(result) {
+
+				console.log(JSON.stringify(result));
+
+				if (result.status.name == "ok") {
+					if(!result.data){   
+						$('#resultError').text(ErrorMessage1)
+						}
+					$('#txt1').html(result['data'][0]['distance']);
+					$('#txt2').html(result['data'][0]['countryName']); 
+					$('#txt3').html(result['data'][0]['population']);
+					$('#txt4').html(result['data'][0]['toponymName']);
+					$('#txt5').html(result['data'][0]['timezone']['timeZoneId']);
+
+				}
+			
+			},
+			error: function(jqXHR, status, error) {
+						let errorMessage = jqXHR.status + ': ' + jqXHR.statusText ;
+						$('#resultError').text(ErrorMessage2)
+						
+				}
+		}); 
+	
+	});
+	

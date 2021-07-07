@@ -91,3 +91,8 @@ td:last-child{
       color: white;
       cursor: pointer;;
   }
+
+  #resultError {
+      color : red;
+      font-size : 22px
+  }

@@ -8,7 +8,7 @@
 	$executionStartTime = microtime(true);
 
 	// $url='http://api.geonames.org/neighbourhoodJSON?formatted=true&lat=' . $_REQUEST['latitude2'] . '&lng=' . $_REQUEST['longitude2'] . '&username=ph0enixvect0r0&style=full';
-    $url='http://api.geonames.org/neighbourhood?lat=' . $_REQUEST['latitude2'] . '&lng=' . $_REQUEST['longitude2'] . '&username=ph0enixvect0r0&style=full';
+    $url='http://api.geonames.org/neighboursJSON?formatted=true&geonameId=' . $_REQUEST['geonameid'] . '&username=ph0enixvect0r0&style=full';
 
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);

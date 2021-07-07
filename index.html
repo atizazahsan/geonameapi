@@ -88,12 +88,11 @@
 			
 			<tr>
 				<td>
-					Nearby Populated Place
+					Neighbourhood
 				</td>
 				<td>
-					<h3>Find nearby populated place / reverse geocoding</h3> <br>
-					<input type="number" id="latValue2" placeholder="Latitude">
-					<input type="number" id="lngValue2" placeholder="Longitude">	
+					<h3>Find neighbours</h3> <br>
+					<input type="number" id="geonameid" placeholder="Geonameid : try 2782113 ">
 				</td>
 				<td>
 					<a id="btnPlace2" class="btn">Submit</a>
@@ -105,6 +104,7 @@
 					
 					<div class="result">
 						<h4 class="heading">Result</h4>
+						<h6 id="resultError"></h6>
 						<h6 class="apiResult" id="txt1"></h6>
 						<h6 class="apiResult" id="txt2"></h6>
 						<h6 class="apiResult" id="txt3"></h6>
